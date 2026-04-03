@@ -1,0 +1,19 @@
+<h2>Product Name: <%= @product.name %></h2>
+<h3>Product Description: <%= @product.description %></h3>
+<h3>Price: <%= number_to_currency(@product.price) %></h3>
+<h3>Category: <%= @product.category.name %></h3>
+
+<% if @product.image.attached? %>
+      <%= image_tag @product.image, alt: @product.name, width: 300 %> 
+<% end %>
+
+<%# if @product.image.attached? %>
+  <%#= image_tag url_for(@product.image) %>
+<%# end %>
+<h3>
+<%= link_to 'Back to Products', products_path %></h3>
+<% if current_user&.super_admin? %>
+
+<h3><%= link_to 'Edit', edit_product_path(@product) %></h3>
+<% end %>
+ <button class="btn btn-primary">Add to Cart</button>    

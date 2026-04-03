@@ -1,0 +1,29 @@
+<h1>My Orders</h1>
+<% if @orders.present? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Placed On</th>
+        <th>Total Items</th>
+        <th>Total Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td>#<%= order.id %></td>      
+          <td><%= order.created_at.strftime("%B %d, %Y") %></td>
+          <td><%= order.order_items.count %> items</td>       
+          <td><%= number_to_currency(order.total_price) %></td>
+          <td>
+            <%= link_to "View Details", order_path(order), class: "btn btn-primary" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No past Orders found.</p>
+<% end %>

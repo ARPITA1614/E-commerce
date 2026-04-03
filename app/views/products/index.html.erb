@@ -1,0 +1,22 @@
+<div class="product-grid">
+  <% @products.each do |product| %>
+    <div class="product-card">
+      <div class="product-image">
+        <% if product.image.present? %>
+          <%= image_tag product.image, alt: product.name %>
+        <% else %>
+          <div class="placeholder">No Image</div>
+        <% end %>
+      </div>      
+      <div class="product-info">
+        <h3 class="product-name"><%= link_to product.name, product %></h3>
+        <p class="product-price">Rs. <%= product.price %></p>
+        <div class="actions">
+          <%= link_to 'View', product, class: 'btn btn-outline' %>
+          <%= link_to 'Show', product, class: 'btn btn-outline' %>      
+          <%= button_to "Add to Cart", items_path(product_id: product.id), method: :post, class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

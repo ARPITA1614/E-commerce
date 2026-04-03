@@ -1,0 +1,54 @@
+<div id="sidebar" class="d-flex flex-column flex-shrink-0 p-0 text-white bg-dark m-0" style="width: 106%; height:100vh;">
+  <%= link_to root_path, class: "d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none p-3" do %>
+    <svg class="bi me-2" width="60" height="32"><use xlink:href="#bootstrap"></use></svg>
+    <span class="fs-4">Quick Links</span>
+  <% end %>
+  <hr>
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item">
+      <%= link_to root_path, class: "nav-link #{'active' if current_page?(root_path)} text-white", aria: { current: ("page" if current_page?(root_path)) } do %>
+        <svg class="bi me-2" width="16" height="36"><use xlink:href="#home"></use></svg>
+        <span style="font-weight: bold; font-size: 1.15rem;">Home</span>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to profile_path, class: "nav-link #{'active' if current_page?(profile_path)} text-white" do %>
+        <svg class="bi me-2" width="16" height="36"><use xlink:href="#speedometer2"></use></svg>
+        <span style="font-weight: bold; font-size: 1.15rem;">My Profile</span>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to orders_path, class: "nav-link #{'active' if current_page?(orders_path)} text-white" do %>
+        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+        <span style="font-weight: bold; font-size: 1.15rem;">Orders</span>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to products_path, class: "nav-link text-white" do %>
+        <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
+        <span style="font-weight: bold; font-size: 1.15rem;">Products</span>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to wishlist_path, class: "nav-link text-white" do %>
+        <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+        <span style="font-weight: bold; font-size: 1.15rem;">Wishlist</span>
+      <% end %>
+    </li>
+  </ul>
+  
+  <hr>
+  
+  <div class="dropdown p-3">
+    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+      <%= image_tag "profile.jpeg", alt: "User Profile", width: 32, height: 32, class: "rounded-circle me-2" %>
+      <strong><%= @user&.username || "Guest" %></strong>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+      <li><%= link_to "Settings", "#", class: "dropdown-item" %></li>
+      <li><%= link_to "Profile", "#", class: "dropdown-item" %></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><%= link_to "Sign out", "#", class: "dropdown-item" %></li>
+    </ul>
+  </div>
+</div>
