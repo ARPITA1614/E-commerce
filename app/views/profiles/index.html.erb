@@ -1,3 +1,25 @@
-<h1 style="text-decoration: underline;">My profile</h1>
-<h4>User Name:- <%= @user.username %></h4>
-<h4>Email:- <%= @user.email %></h4>
+<div class="container py-5">
+  <div class="row g-4">
+      <div class="card border-0 shadow-sm">
+        <div class="card-header bg-white py-3">
+          <h5 class="mb-0">Profile Information</h5>
+        </div>
+        <div class="card-body p-4">
+          <div class="row g-3">
+          <div class="col-md-6">
+              <label class="small text-muted d-block">UserName</label>
+              <p class="fw-bold"><%= @user.username %></p>
+            </div>
+            <div class="col-md-6">
+              <label class="small text-muted d-block">Email Address</label>
+              <p class="fw-bold"><%= @user.email %></p>
+            </div>
+            <div class="col-md-6">
+              <label class="small text-muted d-block">Member Since</label>
+              <p class="fw-bold"><%= @user.created_at.strftime("%d %b, %Y") %></p>
+            </div>
+          </div>
+        </div>
+      </div>   
+  </div>
+</div>

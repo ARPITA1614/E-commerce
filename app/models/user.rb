@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   has_one :cart
   has_many :orders
+  has_many :wishlists
+  has_many :wishlist_products, through: :wishlists, source: :product
 
   # def soft_delete
   #   byebug

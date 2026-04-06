@@ -1,1 +1,29 @@
 <h1> Wishlist </h1>
+<% if @wishlist_items.any? %>
+  <div class="wishlist-grid">
+    <% @wishlist_items.each do |product| %> 
+      <div class="wishlist-card">
+        <div class="wishlist-image">
+          <% if product.image.present? %>
+            <%= image_tag product.image, alt: product.name %>
+          <% else %>
+            <div class="placeholder">No Image</div>
+          <% end %>
+        </div>      
+        <div class="wishlist-info">
+          <h3 class="wishlist-name"><%= link_to product.name, product_path(product) %></h3>
+          <p class="wishlist-price">Rs. <%= product.price %></p>
+          <div class="actions">
+            <%= link_to 'Show',product_path(product), class:'btn btn-outline'%>                  
+            <%= button_to "Add to Cart", items_path(product_id: product.id), method: :post, class: "btn btn-primary" %>  
+            <%= button_to "Remove", wishlist_path(product.id), method: :delete, class: "text-danger" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %> 
+  <p>Your wishlist is empty. Kindly explore products in the site... 
+    <%= link_to 'Start shopping', products_path %>
+  </p>
+<% end %>

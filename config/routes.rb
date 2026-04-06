@@ -44,6 +44,8 @@ Rails.application.routes.draw do
   resources :items, only: [:create, :update, :destroy]
   # get "order", to: "orders#index", as: :order
   get "my_profile", to: "profiles#index", as: :profile
-  get "wishlist", to: "wishlists#index", as: :wishlist
+  # get "wishlist", to: "wishlists#index", as: :wishlist
   resources :orders, only: [:index, :show]
+  resources :wishlists, only: [:index, :create, :destroy]
+
 end
