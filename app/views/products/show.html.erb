@@ -6,14 +6,9 @@
 <% if @product.image.attached? %>
       <%= image_tag @product.image, alt: @product.name, width: 300 %> 
 <% end %>
-
-<%# if @product.image.attached? %>
-  <%#= image_tag url_for(@product.image) %>
-<%# end %>
-<h3>
-<%= link_to 'Back to Products', products_path %></h3>
 <% if current_user&.super_admin? %>
-
 <h3><%= link_to 'Edit', edit_product_path(@product) %></h3>
 <% end %>
- <button class="btn btn-primary">Add to Cart</button>    
+<h3><%= link_to 'Back to Products', products_path %></h3>
+ <%= button_to "Add to Cart", items_path(product_id: @product.id), method: :post, class: "btn btn-primary" %>
+

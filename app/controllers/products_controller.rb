@@ -1,14 +1,13 @@
 class ProductsController < ApplicationController
+    #include Pagy::Backend
   before_action :set_product, only: %i[ update destroy edit show ]
   skip_before_action :authenticate_user!, only: [:index, :show]
-  
+
   def index
-    if params[:category_id]
-      @products = Product.where(category_id: params[:category_id])
-    else
-      @products = Product.all
-    end
+    @q = Product.ransack(params[:q])
+    @products = @q.result(distinct: true)
   end
+
 
   def create
     @product=Product.create(product_params)

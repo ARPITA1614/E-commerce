@@ -1,0 +1,14 @@
+<%= turbo_stream.append "products_grid" do %>
+  <%= render @products %>
+<% end %>
+
+<%# 2. Update the loader for the next page %>
+<%= turbo_stream.replace "pagination" do %>
+  <% if @pagy.next %>
+    <%= turbo_frame_tag "pagination", 
+          src: products_path(page: @pagy.next, category_id: params[:category_id], format: :turbo_stream), 
+          loading: :lazy %>
+  <% else %>
+    <p class="end-of-list">No more products to show.</p>
+  <% end %>
+<% end %>

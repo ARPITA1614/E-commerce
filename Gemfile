@@ -73,3 +73,5 @@ gem 'devise'
 gem 'activeadmin'
 gem 'pundit'
 gem 'dartsass-rails'
+gem "pagy"
+gem 'ransack'

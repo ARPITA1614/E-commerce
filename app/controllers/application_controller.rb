@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  #include Pagy::Backend
   include Pundit::Authorization
   before_action :authenticate_user!
   # before_action :authenticate_super_admin!
@@ -6,6 +7,13 @@ class ApplicationController < ActionController::Base
   allow_browser versions: :modern
   # Changes to the importmap will invalidate the etag for HTML responses
   stale_when_importmap_changes
+
+  before_action :set_query
+
+def set_query
+  @q = Product.ransack(params[:q])
+end
+
 
   def authenticate_super_admin!
     # byebug

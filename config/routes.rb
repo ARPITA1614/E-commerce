@@ -30,10 +30,6 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
-
-  # 2. ActiveAdmin Routes
-  # Note: We removed ActiveAdmin::Devise.config from the user routes above.
-  # ActiveAdmin will now use its own internal logic or a separate AdminUser model.
   ActiveAdmin.routes(self)
 
   resources :products

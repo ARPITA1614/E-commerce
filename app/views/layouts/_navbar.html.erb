@@ -1,6 +1,14 @@
 <nav class="navbar navbar-expand-lg mb-0 p-0 m-0 py-3" style="background-color: #e3f2fd;" data-bs-theme="light">
   <div class="container-fluid m-0">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <%= search_form_for @q, url: products_path, html: { class: "d-flex mx-auto w-50" } do |f| %>
+  <%= f.search_field :name_cont, 
+      class: "form-control me-2", 
+      placeholder: "Search products...", 
+      aria: { label: "Search" } %>
+  <%= f.submit "Search", class: "btn btn-outline-primary" %>
+<% end %>
+
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <%= link_to "Products", products_path, class: "nav-link active fs-6" %>
@@ -13,11 +21,12 @@
             Categories
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-            <li><%= link_to "Electronics", products_path(category_id: 1), class:"dropdown-item" %></li>
-            <li><%= link_to "Fashion", products_path(category_id: 2), class:"dropdown-item" %></li>
-            <li><%= link_to "Mobile", products_path(category_id: 3), class:"dropdown-item" %></li>
-            <li><%= link_to "Furniture", products_path(category_id: 4), class: "dropdown-item" %></li>
-            <li><%= link_to "Beauty", products_path(category_id: 5), class: "dropdown-item" %></li>
+            <li><%= link_to "Electronics", products_path(q: { category_id_eq: 1 }),class:"dropdown-item" %></li>
+            <%#= link_to "Fashion", products_path(category_id: 2), class:"dropdown-item" %>
+            <li><%= link_to "Fashion",products_path(q: { category_id_eq: 2}), class:"dropdown-item" %></li>
+            <li><%= link_to "Mobile", products_path(q: { category_id_eq: 3}), class:"dropdown-item" %></li>
+            <li><%= link_to "Furniture", products_path(q: { category_id_eq: 4}), class: "dropdown-item" %></li>
+            <li><%= link_to "Beauty", products_path(q: { category_id_eq: 5}), class: "dropdown-item" %></li>
             <li><hr class="dropdown-divider"></li>
             <li><%= link_to "All Products", products_path, class: "dropdown-item" %></li>
           </ul>

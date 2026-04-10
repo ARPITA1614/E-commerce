@@ -13,7 +13,7 @@ ActiveAdmin.register Product do
       f.input :name
       f.input :description
       f.input :price
-      f.input :category_id, as: :select, collection: Categorie.all
+      f.input :category_id, as: :select, collection: Category.all
       # Adding this one specific line ensures the upload field appears
       f.input :image, as: :file 
     end

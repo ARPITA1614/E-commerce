@@ -5,7 +5,7 @@
       <div class="wishlist-card">
         <div class="wishlist-image">
           <% if product.image.present? %>
-            <%= image_tag product.image, alt: product.name %>
+            <%= image_tag product.image, alt: product.name, size: 10*10 %>
           <% else %>
             <div class="placeholder">No Image</div>
           <% end %>
