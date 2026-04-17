@@ -1,0 +1,5 @@
+<%= turbo_stream.replace "like-#{@product.id}" do %>
+  <%= button_to wishlist_path(@product), method: :delete do %>
+    <%= image_tag "heart.jpeg", size: "25x25" %>
+  <% end %>
+<% end %>

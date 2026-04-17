@@ -8,7 +8,6 @@ class ProductsController < ApplicationController
     @products = @q.result(distinct: true)
   end
 
-
   def create
     @product=Product.create(product_params)
     authorize @product

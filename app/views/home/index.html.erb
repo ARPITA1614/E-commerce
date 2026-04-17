@@ -8,21 +8,23 @@
           <div class="placeholder">No Image</div>
         <% end %>
       </div>  
+      <div id="like">
       <% if user_signed_in? %>
           <% if current_user.wishlist_products.include?(product) %>
-            <%= button_to wishlist_path(product), method: :delete,remote: true do %>
+            <%= button_to wishlist_path(product), method: :delete,remote: true, form: { data: { turbo: false }} do %>
               <%= image_tag "heart.jpeg", alt: "heart", size: "25x25", method: :post %>
             <% end %>
           <% else %>
-            <%=button_to wishlists_path(product_id: product.id), method: :post, remote: true do %>
+            <%=button_to wishlists_path(product_id: product.id), method: :post,remote: true, form: { data: { turbo: false }} do %>
               <%= image_tag "heart2.png", alt: "heart", size: "25x25", method: :post %>
+            <% end %>
           <% end %>
-      <% end %>
-  <% end %>    
+        <% end %>  
+        </div>  
       <div class="product-info">
         <h3 class="product-name"><%= link_to product.name, product %></h3>
         <p class="product-price">Rs. <%= product.price %></p>
-        <div class="actions">     
+        <div class="actions" style="display: flex">     
         <%= link_to 'Show', product, class: 'btn btn-outline' %>      
         <%= button_to "Add to Cart", items_path(product_id: product.id), method: :post, class: "btn btn-primary" %>
         </div>
@@ -30,3 +32,8 @@
     </div>
   <% end %>
 </div>
+<script>
+  document.getElementById('like').innerHTML = `<%= j(button_to wishlists_path(product_id: product.id), method: :post, remote: true do %>
+    <%= image_tag "heart2.png", size: "25x25" %>
+  <% end) %>`;
+</script>

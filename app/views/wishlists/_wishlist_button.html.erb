@@ -1,0 +1,11 @@
+<div id="wishlist_button_<%= product.id %>">
+  <% if current_user.wishlist_products.include?(product) %>
+    <%= button_to wishlist_path(product), method: :delete, data: { turbo_stream: true } do %>
+      <%= image_tag "heart.jpeg", size: "25x25" %>
+    <% end %>
+  <% else %>
+    <%= button_to wishlists_path(product_id: product.id), method: :post, data: { turbo_stream: true } do %>
+      <%= image_tag "heart2.png", size: "25x25" %>
+    <% end %>
+  <% end %>
+</div>

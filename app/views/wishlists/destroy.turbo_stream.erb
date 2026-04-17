@@ -1,0 +1,5 @@
+<%= turbo_stream.replace "like-#{@product.id}" do %>
+  <%= button_to wishlists_path(product_id: @product.id), method: :post do %>
+    <%= image_tag "heart2.png", size: "25x25" %>
+  <% end %>
+<% end %>

@@ -29,6 +29,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["@popperjs/core", "npm:2.11.8"],\
+          ["@rails/ujs", "npm:7.1.3-4"],\
           ["app", "workspace:."],\
           ["autoprefixer", "virtual:0460f86c7587ee75dac643681550c044e8047ba46e219a5baac054fc0fea2d0af97a9bd3fe4b22de0884797215e0a1a4368bb60f9ef7087a69c4008789f4e032#npm:10.4.27"],\
           ["bootstrap", "virtual:0460f86c7587ee75dac643681550c044e8047ba46e219a5baac054fc0fea2d0af97a9bd3fe4b22de0884797215e0a1a4368bb60f9ef7087a69c4008789f4e032#npm:5.3.8"],\
@@ -246,6 +247,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@rails/ujs", [\
+      ["npm:7.1.3-4", {\
+        "packageLocation": "../.yarn/berry/cache/@rails-ujs-npm-7.1.3-4-25966b1d30-10c0.zip/node_modules/@rails/ujs/",\
+        "packageDependencies": [\
+          ["@rails/ujs", "npm:7.1.3-4"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["abbrev", [\
       ["npm:4.0.0", {\
         "packageLocation": "../.yarn/berry/cache/abbrev-npm-4.0.0-7d848a1ef0-10c0.zip/node_modules/abbrev/",\
@@ -299,6 +309,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["@popperjs/core", "npm:2.11.8"],\
+          ["@rails/ujs", "npm:7.1.3-4"],\
           ["app", "workspace:."],\
           ["autoprefixer", "virtual:0460f86c7587ee75dac643681550c044e8047ba46e219a5baac054fc0fea2d0af97a9bd3fe4b22de0884797215e0a1a4368bb60f9ef7087a69c4008789f4e032#npm:10.4.27"],\
           ["bootstrap", "virtual:0460f86c7587ee75dac643681550c044e8047ba46e219a5baac054fc0fea2d0af97a9bd3fe4b22de0884797215e0a1a4368bb60f9ef7087a69c4008789f4e032#npm:5.3.8"],\

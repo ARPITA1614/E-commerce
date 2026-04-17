@@ -32,6 +32,8 @@
   </table>
 
   <h3>Total: Rs. <%= @cart.items.sum { |i| i.price * i.quantity } %></h3>
+  <br>
+  <%= button_to "Buy Now", checkout_path, class: "btn btn-sm btn-danger" %>
 <% else %>
   <p>Your cart is empty. <%= link_to 'Start shopping', products_path %></p>
 <% end %>

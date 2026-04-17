@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
       if @item.quantity == 1
         @item.destroy!
       end
-      @item.decrement!(:quantity) if @item.quantity > 1
+      @item.decrement!(:quantity) 
     end
     redirect_to carts_path
   end
